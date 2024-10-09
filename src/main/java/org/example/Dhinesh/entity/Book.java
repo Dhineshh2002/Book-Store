@@ -10,10 +10,12 @@ public class Book {
     private Integer id;
     private String name;
     private String description;
-    Author author;
-
     @Column(name = "year_of_published")
     private Integer yearOfPublished;
+    @ManyToOne
+    @JoinColumn(name = "author", referencedColumnName = "id", nullable = false)
+    private Author author;
+
 
     public Book() {}
 
