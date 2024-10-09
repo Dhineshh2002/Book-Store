@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 public class BookController {
@@ -15,8 +16,9 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping ("/books")
-    public List<Object> getBooks() {
-        return bookService.getBooks();
+    public List<Book> getBooks(@RequestParam (name = "yearOfPublished", required = false) Set<Integer> yop,
+                               @RequestParam (name = "name", required = false) String name) {
+        return bookService.getBooks(yop, name);
     }
 
     @RequestMapping (value = "/books", method = RequestMethod.POST)

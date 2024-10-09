@@ -10,17 +10,19 @@ public class Book {
     private Integer id;
     private String name;
     private String description;
+    Author author;
 
     @Column(name = "year_of_published")
     private Integer yearOfPublished;
 
     public Book() {}
 
-    public Book(Integer id, String name, String description, Integer year) {
+    public Book(Integer id, String name, String description, Integer year, Author author) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.yearOfPublished = year;
+        this.author = author;
     }
 
     public Integer getId() {
@@ -54,4 +56,13 @@ public class Book {
     public void setYearOfPublished(Integer yearOfPublished) {
         this.yearOfPublished = yearOfPublished;
     }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
 }
